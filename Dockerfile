@@ -20,8 +20,8 @@ RUN bundle install --path vendor/bundle
 RUN bundle exec rake db:migrate
 
 USER root
-ADD initd_rails /etc/initd/rails
-RUN chmod +x /etc/initd/rails && update-rc.d rails defaults
+ADD initd_rails /etc/init.d/rails
+RUN chmod +x /etc/init.d/rails && update-rc.d rails defaults
 
 USER root
 EXPOSE 3000

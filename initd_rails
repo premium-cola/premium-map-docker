@@ -12,7 +12,7 @@ cd /srv/app/premium-map
 
 case "$1" in
   start)
-    su app -c 'tmux new -s rails_server "bundler exec rails server"'
+    su app -c 'tmux new -d -s rails_server "bundler exec rails server"'
     ;;
   stop)
     exit 1
