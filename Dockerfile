@@ -17,6 +17,7 @@ ADD post-receive /srv/app/premium-map/.git/hooks/post-receive
 WORKDIR /srv/app/premium-map
 RUN git config receive.denyCurrentBranch ignore
 RUN bundle install --path vendor/bundle
+RUN bundle exec rake db:migrate
 
 USER root
 ADD initd_rails /etc/initd/rails
