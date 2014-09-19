@@ -1,0 +1,29 @@
+#! /bin/sh
+# Provides:          rails
+# Required-Start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Rails Web Server
+# Description:       Rails Web Server
+
+RAILS_ENV="development"
+cd /srv/app/premium-map
+
+case "$1" in
+  start)
+    su app -c 'tmux new -s rails_server "bundler exec rails server"'
+    ;;
+  stop)
+    exit 1
+    ;;
+  restart)
+    exit 1
+    ;;
+  reload|force-reload)
+    exit 1
+    ;;
+  *)
+    exit 1
+    ;;
+esac
