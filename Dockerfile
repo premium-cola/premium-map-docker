@@ -2,7 +2,7 @@ FROM debian:7.5
 
 ENV RAILS_ENV development
 
-RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y openssh-server tmux zsh man vim htop less most git wget ca-certificates curl ruby1.9.3 build-essential g++ libmysqlclient-dev libsqlite3-dev sudo
+RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y openssh-server tmux zsh man vim htop less most git wget ca-certificates curl ruby1.9.3 build-essential g++ libmysqlclient-dev libsqlite3-dev sudo apt-file && apt-file update
 RUN gem install bundler
 
 ADD sudoers /etc/sudoers
